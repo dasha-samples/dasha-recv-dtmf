@@ -10,7 +10,7 @@ start node root
     {
         #connectSafe($phone);
         #waitForSpeech(1000);
-        #say("hello");
+        #sayText("Please enter your pin code and press sharp.");
         goto waitPin;
     }
     transitions
@@ -49,10 +49,10 @@ node checkPin
     {
         if (external checkPin($pincode))
         {
-            #say("correct");
+            #sayText("Pin code is correct.");
         } else
         {
-            #say("incorrect");
+            #sayText("Pin code is incorrect.");
         }
 
         exit;

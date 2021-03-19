@@ -1,4 +1,4 @@
-Simple application based on Dasha.ai SDK for node.js for testing SIP DTMF codes receiving (buttons on phone during the call)
+Simple app based on Dasha SDK for Node.js that shows how to handle SIP DTMF codes (pressing buttons on phone during the call).
 
 # Prerequisites:
 - node.js 12.0 and above
@@ -10,29 +10,23 @@ Simple application based on Dasha.ai SDK for node.js for testing SIP DTMF codes 
 
 - clone this repository
 - `npm i`
-
-# Pin code checking
-- enter pin code, then #
+- `node main.js out -c default -p +XXXX`, where `XXXX` - is your phone number. This will initiate a call to your phone using Dasha sandbox SIP environment (no integration).
+- while on a call, enter pin code, then `#`
 - if pin code contains `1` - it's correct, and Dasha will say you, that it's correct
 
-# Simple checking with Dasha SIP
-- `node main.js out -c default -p +XXXX`, where `XXXX` - is your phone number
-
-## DTMF Outbound calls checking
-
+## Outbound calls integration with your telephony provider
 - Create inbound SIP configuration on your PBX/provider
 - Create outbound SIP configuration on Dasha side
     - `dasha sip create-outbound -h`
     - for example: 
 ```
-dasha sip create-outbound --server my-dasha-app.pstn.twilio.com --account +1XXXXXXXXXX --ask-password twilio
+dasha sip create-outbound --server my-dasha-app.pstn.twilio.com --account +1XXXXXXXXXX --ask-password myTwilio
 password: enter_your_password_here
 ```
-- Call to yourself `node main.js out -c twilio -p +XXXXXX`
+- Call to yourself `node main.js out -c myTwilio -p +XXXXXX`
 - More info: https://docs.dasha.ai/en-us/default/tutorials/sip-outbound-calls/
 
-
-## DTMF Inbound calls checking
+## Inbound calls integration with your telephony provider
 
 - Create inbound SIP configuration on Dasha side
 `dasha sip create-inbound --application-name dtmf-test-app dtmf-test-app`
@@ -43,14 +37,12 @@ password: enter_your_password_here
 - Call to `uri` returned by `dasha sip create-inbound`
 - More info: https://docs.dasha.ai/en-us/default/tutorials/sip-inbound-calls/
 
-
 ### Notes:
 
-
-Happy checking!!
+Happy hacking!!
 
 ---
-dasha.ai team
+Dasha.AI team
 
 https://dasha.ai
 
