@@ -1,4 +1,4 @@
-Simple app based on Dasha SDK for Node.js that shows how to handle SIP DTMF codes (pressing buttons on phone during the call).
+Simple app based on Dasha SDK for Node.js that shows how to handle SIP DTMF codes (pressing buttons on phone during the call). If you need any help, join us in our [Developer Community](http://community.dasha.ai).
 
 # Prerequisites:
 - node.js 12.0 and above
