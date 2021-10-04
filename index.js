@@ -37,7 +37,10 @@ commander
 
     app.queue.on("ready", async (conv) => {
       conv.input = { phone: null };
-      const result = await conv.execute();
+      
+    const result = await conv.execute({
+      channel: conv.input.phone === "chat" ? "text" : "audio",
+  });
 
       console.log(`pin is ${result.output.pincode}`);
 
